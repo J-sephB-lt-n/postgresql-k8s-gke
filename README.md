@@ -1,7 +1,18 @@
-
 This repo contains code to set up and run a [PostgreSQL](https://www.postgresql.org/) database on [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine) using [CloudNativePG](https://cloudnative-pg.io/).
 
 !!!this repo is still a work in progress!!!
+
+Goals of this project: 
+
+1. A postgreSQL database hosted on GKE
+
+2. Runs scheduled backups writing to cloud storage
+
+3. Database access authenticated using GCP service account (same as FireStore etc.) 
+
+4. Database can be directly connected to using python psycopg from outside of the k8s cluster
+
+5. Illustrates how to recover the database after a failure, or to a desired point in time
 
 ```bash
 gcloud auth login

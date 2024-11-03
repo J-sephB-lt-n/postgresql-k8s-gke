@@ -2,17 +2,19 @@ This repo contains code to set up and run a [PostgreSQL](https://www.postgresql.
 
 !!!this repo is still a work in progress!!!
 
-Goals of this project: 
+Structure of the cluster:
 
-1. A postgreSQL database hosted on GKE
+1. A single API gateway pod which accepts external requests
 
-2. Runs scheduled backups writing to cloud storage
+2. A postgreSQL database hosted on GKE
 
-3. Database access authenticated using GCP service account (same as FireStore etc.) 
+    - Using CloudNative-PG
 
-4. Database can be directly connected to using python psycopg from outside of the k8s cluster
+    - Runs scheduled backups writing to cloud storage
 
-5. Illustrates how to recover the database after a failure, or to a desired point in time
+    - Illustrates how to recover the database after a failure, or to a desired point in time
+
+3. An auto-scaling flask app which performs basic CRUD operations on the database
 
 ```bash
 gcloud auth login
